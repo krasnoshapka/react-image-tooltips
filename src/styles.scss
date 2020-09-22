@@ -1,13 +1,71 @@
-.package {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+$blue:    #007bff !default;
+$basesize:    1rem * .625 !default; // 10px
+$primary:         $blue !default;
 
-  & > h2 {
-    color: #333;
-    font-size: 2.5em;
-    font-family: 'Lucida Sans', sans-serif;
+.hotspot {
+  position: absolute;
+}
+
+.hotspot-trigger {
+  text-align: center;
+  display: block;
+  width: ($basesize * 3.4);
+  height: ($basesize * 3.4);
+  margin-bottom: $basesize;
+  border-radius: 100%;
+  line-height: ($basesize * 3.3);
+  background: $primary;
+  color: #fff;
+  font-size: ($basesize * 3);
+  font-weight: 400;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  transform: rotateZ(0);
+  transition: ease-out .15s transform;
+
+  .toggled & {
+    transform: rotateZ(-45deg);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -($basesize * .2);
+    left: -($basesize * .2);
+    z-index: -1;
+    width: ($basesize * 3.8);
+    height: ($basesize * 3.8);
+    border: ($basesize * .3) solid $primary;
+    border-radius: 50%;
+    animation: pulsate 1.5s infinite;
+  }
+}
+
+.hotspot-content {
+  top: ($basesize * 4.4);
+  min-width: ($basesize * 25);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hotspot-container {
+  position: relative;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1,1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2,1.2);
+    opacity: 0;
   }
 }
