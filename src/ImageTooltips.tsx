@@ -1,19 +1,19 @@
 import * as React from 'react';
 import {ImageTooltipsItem as _ImageTooltipsItem} from './ImageTooltipsItem';
-import './styles.scss'
+import './styles.scss';
 
 export const ImageTooltipsItem = _ImageTooltipsItem;
 
 export interface ImageTooltipsProps {
-  src: string,
-  width: number,
-  height: number,
+  src: string;
+  width: number;
+  height: number;
   children: React.ReactNode
 }
 
 type imageSizeObject = {
-  w: number,
-  h: number,
+  curW: number,
+  curH: number,
   initW: number,
   initH: number
 }
@@ -41,20 +41,12 @@ export function ImageTooltips({ children, src, width, height, ...props }: ImageT
         setImageSize({
           initW: imageSizeRef.current!.initW,
           initH: imageSizeRef.current!.initH,
-          w: imageEl.current!.offsetWidth,
-          h: imageEl.current!.offsetHeight
+          curW: imageEl.current!.offsetWidth,
+          curH: imageEl.current!.offsetHeight
         });
         timerId = undefined;
       }, 200);
     };
-
-    // Set initial image dimensions in state
-    setImageSize({
-      initW: width,
-      initH: height,
-      w: imageEl.current!.offsetWidth,
-      h: imageEl.current!.offsetHeight
-    });
 
     // Add event listener
     window.addEventListener('resize', handleResize);
@@ -63,10 +55,11 @@ export function ImageTooltips({ children, src, width, height, ...props }: ImageT
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const parentHandleClick = (id: number, toggle: boolean) => {
+  const parentHandleClick = (id: number, toggle: boolean): void => {
     setToggled(toggle ? id : null);
   };
 
+  // Making image responsive
   const style = {
     width: '100%',
     maxWidth: `${width}px`,
@@ -75,7 +68,13 @@ export function ImageTooltips({ children, src, width, height, ...props }: ImageT
 
   return (
     <div className="hotspot-container">
-      <img ref={imageEl} src={src} style={style} {...props} />
+      <img ref={imageEl} src={src} style={style} {...props} onLoad={() => setImageSize({
+        // Set initial image dimensions in state
+        initW: width,
+        initH: height,
+        curW: imageEl.current!.offsetWidth,
+        curH: imageEl.current!.offsetHeight
+      })} />
 
       {imageSize && children && React.Children.toArray(children).map((child: React.ReactElement, index) => {
         return (
@@ -83,8 +82,8 @@ export function ImageTooltips({ children, src, width, height, ...props }: ImageT
             key={index}
             id={index}
             toggle={index === toggled}
-            imageW={imageSize.w / imageSize.initW}
-            imageH={imageSize.h / imageSize.initH}
+            imageW={imageSize.curW / imageSize.initW}
+            imageH={imageSize.curH / imageSize.initH}
             parentHandleClick={parentHandleClick}
             {...child.props}
           >

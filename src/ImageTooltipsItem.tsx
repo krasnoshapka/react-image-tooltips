@@ -1,19 +1,19 @@
 import * as React from 'react';
-// import Accordion from './Accordion';
+import {Accordion} from './Accordion';
 
 export interface ImageTooltipsItemProps {
-  id: number,
-  top: number,
-  left: number,
-  imageW: number,
-  imageH: number,
-  toggle: boolean,
-  children: React.ReactNode,
+  id: number;
+  top: number;
+  left: number;
+  imageW: number;
+  imageH: number;
+  toggle: boolean;
+  children: React.ReactNode;
   parentHandleClick: (id: number, toggle: boolean) => void
 }
 
 export function ImageTooltipsItem({
-  // children,
+  children,
   id,
   top,
   left,
@@ -45,9 +45,9 @@ export function ImageTooltipsItem({
       <div className="hotspot-trigger" tabIndex={0} onClick={handleClick}>
         +
       </div>
-      {/*<Accordion toggled={toggled} className="hotspot-content">*/}
-      {/*  {children}*/}
-      {/*</Accordion>*/}
+      <Accordion toggled={toggled} className="hotspot-content">
+        {children}
+      </Accordion>
     </div>
   );
 }
