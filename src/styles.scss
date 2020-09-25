@@ -1,9 +1,29 @@
-$blue:    #007bff !default;
-$basesize:    1rem * .625 !default; // 10px
-$primary:         $blue !default;
+$basesize: 1rem * .625 !default; // 10px
+$primary: #007bff !default;
 
 .hotspot {
   position: absolute;
+}
+
+.hotspot-container {
+  position: relative;
+}
+
+.hotspot-content {
+  top: ($basesize * 4.4);
+  min-width: ($basesize * 25);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $primary;
+  opacity: 80%;
+  color: #fff;
+  border-radius: 2%;
+  padding: 0 $basesize;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .hotspot-trigger {
@@ -35,8 +55,8 @@ $primary:         $blue !default;
   &:before {
     content: '';
     position: absolute;
-    top: -($basesize * .2);
-    left: -($basesize * .2);
+    top: -($basesize * .5);
+    left: -($basesize * .5);
     z-index: -1;
     width: ($basesize * 3.8);
     height: ($basesize * 3.8);
@@ -44,18 +64,6 @@ $primary:         $blue !default;
     border-radius: 50%;
     animation: pulsate 1.5s infinite;
   }
-}
-
-.hotspot-content {
-  top: ($basesize * 4.4);
-  min-width: ($basesize * 25);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.hotspot-container {
-  position: relative;
 }
 
 @keyframes pulsate {
