@@ -7,9 +7,15 @@ $primary: #007bff !default;
 
 .hotspot-container {
   position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .hotspot-content {
+  overflow: hidden;
   top: ($basesize * 4.4);
   min-width: ($basesize * 25);
   position: absolute;
@@ -20,10 +26,6 @@ $primary: #007bff !default;
   color: #fff;
   border-radius: 2%;
   padding: 0 $basesize;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .hotspot-trigger {

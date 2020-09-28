@@ -61,9 +61,7 @@ export function ImageTooltips({ children, src, width, height, ...props }: ImageT
 
   // Making image responsive
   const style = {
-    width: '100%',
-    maxWidth: `${width}px`,
-    height: 'auto'
+    maxWidth: `${width}px`
   };
 
   return (

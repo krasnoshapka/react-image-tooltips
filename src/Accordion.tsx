@@ -12,13 +12,10 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Accordion({
   children,
   toggled = false,
-  className,
   onFullyShown,
   onFullyHidden,
   ...props
 }: AccordionProps) {
-  const cssClass = ['overflow-hidden', className];
-
   const isFirstMount = useFirstMount();
 
   const handleAnimationRest = React.useCallback(() => {
@@ -39,7 +36,7 @@ export function Accordion({
       onRest={handleAnimationRest}
     >
       {styleProps => (
-        <div className={cssClass.join(' ')} style={styleProps} {...props}>
+        <div className="hotspot-content" style={styleProps} {...props}>
           {children}
         </div>
       )}

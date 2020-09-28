@@ -14,6 +14,6 @@ export default {
             strict: false
         }
     ],
-    plugins: [sass({ insert: true }), typescript()],
+    plugins: [sass({ output: true }), typescript()],
     external: ['react', 'react-dom']
 }

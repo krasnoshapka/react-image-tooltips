@@ -2,7 +2,8 @@
   "name": "react-image-tooltips",
   "version": "1.0.0",
   "description": "React component that implements an image with tooltips",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "style": "./dist/index.css",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/krasnoshapka/react-image-tooltips.git"

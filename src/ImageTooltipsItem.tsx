@@ -45,7 +45,7 @@ export function ImageTooltipsItem({
       <div className="hotspot-trigger" tabIndex={0} onClick={handleClick}>
         +
       </div>
-      <Accordion toggled={toggled} className="hotspot-content">
+      <Accordion toggled={toggled}>
         {children}
       </Accordion>
     </div>
