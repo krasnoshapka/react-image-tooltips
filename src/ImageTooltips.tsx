@@ -11,11 +11,11 @@ export interface ImageTooltipsProps {
   children: React.ReactNode
 }
 
-type imageSizeObject = {
-  curW: number,
-  curH: number,
-  initW: number,
-  initH: number
+export interface imageSizeObject {
+  initW: number;
+  initH: number;
+  curW: number;
+  curH: number
 }
 
 export function ImageTooltips({ children, src, width, height, ...props }: ImageTooltipsProps) {
@@ -80,8 +80,7 @@ export function ImageTooltips({ children, src, width, height, ...props }: ImageT
             key={index}
             id={index}
             toggle={index === toggled}
-            imageW={imageSize.curW / imageSize.initW}
-            imageH={imageSize.curH / imageSize.initH}
+            imageSize={imageSize}
             parentHandleClick={parentHandleClick}
             {...child.props}
           >
