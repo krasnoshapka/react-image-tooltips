@@ -65,8 +65,8 @@ export function ImageTooltips({ children, src, width, height, ...props }: ImageT
   };
 
   return (
-    <div className="hotspot-container">
-      <img ref={imageEl} src={src} style={style} {...props} onLoad={() => setImageSize({
+    <div className="hotspot-container" style={style}>
+      <img ref={imageEl} src={src} {...props} onLoad={() => setImageSize({
         // Set initial image dimensions in state
         initW: width,
         initH: height,
