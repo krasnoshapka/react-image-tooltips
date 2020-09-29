@@ -5,9 +5,10 @@ May be useful for creating interactive images which user can click/tap on and se
 **[DEMO](https://github.com/krasnoshapka/react-image-tooltips)**
 
 ## Install
+[react-spring](https://www.react-spring.io/) is used for accordion animation so it's peer dependency that should be installed with react-image-tooltips.
 
 ```bash
-npm install --save react-image-tooltips
+npm install --save react-spring react-image-tooltips
 ```
 
 ## Usage
