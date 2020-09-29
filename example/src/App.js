@@ -18,6 +18,7 @@ function App() {
             </ImageTooltipsItem>
         </ImageTooltips>
 
+        © <a href="https://github.com/krasnoshapka">krasnoshapka</a>
     </div>
   );
 }
