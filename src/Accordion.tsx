@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Spring } from 'react-spring/renderprops.cjs';
+import { Spring } from 'react-spring/renderprops';
 import useFirstMount from './hooks/firstmount';
 
 export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
