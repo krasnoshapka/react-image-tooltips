@@ -1,6 +1,6 @@
 {
   "name": "react-image-tooltips",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React component that implements an image with tooltips",
   "main": "./dist/index.js",
   "style": "./dist/index.css",
