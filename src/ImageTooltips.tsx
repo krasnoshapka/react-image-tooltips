@@ -18,7 +18,7 @@ export interface imageSizeObject {
   curH: number
 }
 
-export function ImageTooltips({ children, src, width, height, ...props }: ImageTooltipsProps) {
+export const ImageTooltips: React.FC<ImageTooltipsProps> = ({ children, src, width, height, ...props }: ImageTooltipsProps) => {
   const [imageSize, _setImageSize] = React.useState<imageSizeObject | null>(null);
   const imageSizeRef = React.useRef(imageSize);
   const [toggled, setToggled] = React.useState<number | null>(null);

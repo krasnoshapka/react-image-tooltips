@@ -2,20 +2,20 @@ import * as React from 'react';
 import { Spring } from 'react-spring/renderprops';
 import useFirstMount from './hooks/firstmount';
 
-export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AccordionProps {
+  children?: React.ReactNode;
   toggled?: boolean;
-  children: React.ReactNode;
   onFullyShown?: () => void;
   onFullyHidden?: () => void;
 }
 
-export function Accordion({
+export const Accordion: React.FC<AccordionProps> =({
   children,
-  toggled = false,
+  toggled,
   onFullyShown,
   onFullyHidden,
   ...props
-}: AccordionProps) {
+}: AccordionProps) => {
   const isFirstMount = useFirstMount();
 
   const handleAnimationRest = React.useCallback(() => {

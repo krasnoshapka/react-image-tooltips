@@ -8,11 +8,11 @@ export interface ImageTooltipsItemProps {
   left: number;
   imageSize: imageSizeObject;
   toggle: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   parentHandleClick: (id: number, toggle: boolean) => void
 }
 
-export function ImageTooltipsItem({
+export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = ({
   children,
   id,
   top,
@@ -20,8 +20,8 @@ export function ImageTooltipsItem({
   imageSize,
   toggle,
   parentHandleClick,
-  // ...props
-}: ImageTooltipsItemProps) {
+  ...props
+}: ImageTooltipsItemProps) => {
   const [toggled, setToggled] = React.useState(toggle);
   if (toggled !== toggle) {
     setToggled(toggle);
@@ -61,7 +61,7 @@ export function ImageTooltipsItem({
       <div className="hotspot-trigger" tabIndex={0} onClick={handleClick}>
         +
       </div>
-      <Accordion toggled={toggled}>
+      <Accordion toggled={toggled} {...props}>
         {children}
       </Accordion>
     </div>
