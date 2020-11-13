@@ -4,8 +4,7 @@ import './styles.scss';
 
 export const ImageTooltipsItem = _ImageTooltipsItem;
 
-export interface ImageTooltipsProps {
-  src: string;
+export interface ImageTooltipsProps extends React.ComponentPropsWithoutRef<"img"> {
   width: number;
   height: number;
   children: React.ReactNode
@@ -18,7 +17,7 @@ export interface imageSizeObject {
   curH: number
 }
 
-export const ImageTooltips: React.FC<ImageTooltipsProps> = ({ children, src, width, height, ...props }: ImageTooltipsProps) => {
+export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, height, ...props}: ImageTooltipsProps) => {
   const [imageSize, _setImageSize] = React.useState<imageSizeObject | null>(null);
   const imageSizeRef = React.useRef(imageSize);
   const [toggled, setToggled] = React.useState<number | null>(null);
@@ -66,7 +65,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({ children, src, wid
 
   return (
     <div className="hotspot-container" style={style}>
-      <img ref={imageEl} src={src} {...props} onLoad={() => setImageSize({
+      <img ref={imageEl} {...props} onLoad={() => setImageSize({
         // Set initial image dimensions in state
         initW: width,
         initH: height,
