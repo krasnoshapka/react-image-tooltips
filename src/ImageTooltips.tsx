@@ -1,8 +1,7 @@
 import * as React from 'react';
-import {ImageTooltipsItem as _ImageTooltipsItem} from './ImageTooltipsItem';
+import {ImageTooltipsItem} from './ImageTooltipsItem';
 import './styles.scss';
 
-export const ImageTooltipsItem = _ImageTooltipsItem;
 
 export interface ImageTooltipsProps extends React.ComponentPropsWithoutRef<"img"> {
   width: number;
@@ -75,7 +74,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
 
       {imageSize && children && React.Children.toArray(children).map((child: React.ReactElement, index) => {
         return (
-          <_ImageTooltipsItem
+          <ImageTooltipsItem
             key={index}
             id={index}
             toggle={index === toggled}
@@ -84,7 +83,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
             {...child.props}
           >
             {child.props.children}
-          </_ImageTooltipsItem>
+          </ImageTooltipsItem>
         );
       })}
     </div>
