@@ -1,4 +1,8 @@
 # react-image-tooltips
+[![NPM version](https://img.shields.io/npm/v/react-image-tooltips.svg)](https://www.npmjs.com/package/react-image-tooltips)
+[![Minified size](https://badgen.net/bundlephobia/min/react-image-tooltips)](https://bundlephobia.com/result?p=react-image-tooltips)
+[![Minified + gzip size](https://badgen.net/bundlephobia/minzip/react-image-tooltips)](https://bundlephobia.com/result?p=react-image-tooltips)
+
 React component that implements an image with tooltips (hot spots). 
 May be useful for creating interactive images which user can click/tap on and see description of what is presented on the image. 
 
