@@ -3,6 +3,7 @@ import { Spring } from 'react-spring/renderprops';
 import useFirstMount from './hooks/firstmount';
 
 export interface AccordionProps {
+  className?: string;
   children?: React.ReactNode;
   toggled?: boolean;
   onFullyShown?: () => void;
@@ -10,6 +11,7 @@ export interface AccordionProps {
 }
 
 export const Accordion: React.FC<AccordionProps> =({
+  className = '',
   children,
   toggled,
   onFullyShown,
@@ -22,6 +24,8 @@ export const Accordion: React.FC<AccordionProps> =({
     if (toggled && onFullyShown) onFullyShown();
     else if (!toggled && onFullyHidden) onFullyHidden();
   }, [toggled, onFullyShown, onFullyHidden]);
+
+  const cssClass = ["hotspot-content", className];
 
   return (
     <Spring
@@ -36,7 +40,7 @@ export const Accordion: React.FC<AccordionProps> =({
       onRest={handleAnimationRest}
     >
       {styleProps => (
-        <div className="hotspot-content" style={styleProps} {...props}>
+        <div className={cssClass.join(' ')} style={styleProps} {...props}>
           {children}
         </div>
       )}

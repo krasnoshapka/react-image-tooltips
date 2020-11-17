@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Accordion} from './Accordion';
+import {ImageTooltipsTrigger} from './ImageTooltipsTrigger';
 import {imageSizeObject} from './ImageTooltips';
 
 export interface ImageTooltipsItemProps {
@@ -8,6 +9,7 @@ export interface ImageTooltipsItemProps {
   left: number;
   imageSize: imageSizeObject;
   toggle: boolean;
+  trigger?: ImageTooltipsTrigger | null
   children?: React.ReactNode;
   parentHandleClick: (id: number, toggle: boolean) => void
 }
@@ -19,6 +21,7 @@ export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = ({
   left,
   imageSize,
   toggle,
+  trigger = null,
   parentHandleClick,
   ...props
 }: ImageTooltipsItemProps) => {
@@ -30,10 +33,12 @@ export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = ({
   const handleClick = () => {
     setToggled(!toggled);
     parentHandleClick(id, !toggled);
-  };
+  }
 
-  const cssClass = ['hotspot'];
-  if (toggled) cssClass.push('toggled');
+  let cssClass = ['hotspot'];
+  if (toggled) {
+    cssClass.push('toggled');
+  }
 
   // Validation of hotspot coordinates
   const validateCoord = (c: number, max: number) => {
@@ -58,9 +63,12 @@ export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = ({
 
   return (
     <div className={cssClass.join(' ')} style={style} data-id={id}>
-      <div className="hotspot-trigger" tabIndex={0} onClick={handleClick}>
+      {trigger ? (<ImageTooltipsTrigger {...trigger.props} handleClick={handleClick}>
+        {trigger.props.children}
+      </ImageTooltipsTrigger>) : (<ImageTooltipsTrigger handleClick={handleClick}>
         +
-      </div>
+      </ImageTooltipsTrigger>
+      )}
       <Accordion toggled={toggled} {...props}>
         {children}
       </Accordion>
