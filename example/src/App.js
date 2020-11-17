@@ -1,6 +1,7 @@
 import React from 'react';
 import {ImageTooltips, ImageTooltipsItem, ImageTooltipsTrigger} from "react-image-tooltips";
 import "react-image-tooltips/dist/index.css";
+import "./styles.scss";
 
 function App() {
   const MyTrigger = (<ImageTooltipsTrigger className="my-trigger">

@@ -1,0 +1,68 @@
+$basesize: 1rem * .625 !default; // 10px
+$primary: #007bff !default;
+
+.my-image {
+
+}
+
+.my-trigger {
+  text-align: center;
+  width: ($basesize * 3.4);
+  height: ($basesize * 3.4);
+  margin-bottom: $basesize;
+  border-radius: 100%;
+  line-height: ($basesize * 3.3);
+  background: $primary;
+  color: #fff;
+  font-size: ($basesize * 3);
+  font-weight: 400;
+  z-index: 10;
+  cursor: pointer;
+  transform: rotateZ(0);
+  transition: ease-out .15s transform;
+
+  .toggled & {
+    transform: rotateZ(-45deg);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -($basesize * .5);
+    left: -($basesize * .5);
+    z-index: -1;
+    width: ($basesize * 3.8);
+    height: ($basesize * 3.8);
+    border: ($basesize * .3) solid $primary;
+    border-radius: 50%;
+    animation: pulsate 1.5s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1,1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2,1.2);
+    opacity: 0;
+  }
+}
+
+.my-item {
+  top: ($basesize * 4.4);
+  min-width: ($basesize * 25);
+  transform: translateX(-50%);
+  background-color: $primary;
+  opacity: 0.9;
+  color: #fff;
+  border-radius: 2%;
+  padding: 0 $basesize;
+}
+

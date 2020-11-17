@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {ImageTooltipsItem} from './ImageTooltipsItem';
-import './styles.scss';
 
 export interface ImageTooltipsProps extends React.ComponentPropsWithoutRef<"img"> {
   width: number;
