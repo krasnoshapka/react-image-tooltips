@@ -51,8 +51,8 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const parentHandleClick = (id: number, toggle: boolean): void => {
-    setToggled(toggle ? id : null);
+  const parentHandleClick = (key: number, toggle: boolean): void => {
+    setToggled(toggle ? key : null);
   };
 
   // Making image responsive
@@ -74,7 +74,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
         return (
           <ImageTooltipsItem
             key={index}
-            id={index}
+            dataId={index}
             toggle={index === toggled}
             imageSize={imageSize}
             parentHandleClick={parentHandleClick}

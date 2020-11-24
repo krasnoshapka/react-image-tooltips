@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Spring } from 'react-spring/renderprops';
 import useFirstMount from './hooks/firstmount';
 
-export interface AccordionProps {
+export interface AccordionProps extends React.ComponentPropsWithoutRef<"div"> {
   className?: string;
   children?: React.ReactNode;
   toggled?: boolean;
