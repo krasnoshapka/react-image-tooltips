@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Spring } from 'react-spring/renderprops';
+import { Spring } from 'react-spring/renderprops.cjs';
 import useFirstMount from './hooks/firstmount';
 
 export interface AccordionProps extends React.ComponentPropsWithoutRef<"div"> {
@@ -13,7 +13,7 @@ export interface AccordionProps extends React.ComponentPropsWithoutRef<"div"> {
 export const Accordion: React.FC<AccordionProps> =({
   className = '',
   children,
-  toggled,
+  toggled = false,
   onFullyShown,
   onFullyHidden,
   ...props

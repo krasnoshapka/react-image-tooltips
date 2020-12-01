@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Accordion /> renders correctly when closed 1`] = `
+<div>
+  <div
+    class="hotspot-content "
+    style="height: 0px;"
+  >
+    <span>
+      Accordion content
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Accordion /> renders correctly when open 1`] = `
+<div>
+  <div
+    class="hotspot-content "
+    style="height: auto;"
+  >
+    <span>
+      Accordion content
+    </span>
+  </div>
+</div>
+`;
