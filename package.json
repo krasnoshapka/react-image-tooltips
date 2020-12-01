@@ -16,7 +16,8 @@
   "homepage": "https://github.com/krasnoshapka/react-image-tooltips#readme",
   "scripts": {
     "build": "rollup -c",
-    "start": "rollup -c -w"
+    "start": "rollup -c -w",
+    "test": "jest"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -25,6 +26,9 @@
     "react-spring": "^8.0.27"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@types/jest": "^26.0.15",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
@@ -33,13 +37,30 @@
     "babel-runtime": "^6.26.0",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^6.6.0",
+    "jest": "^26.6.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-spring": "^8.0.27",
     "rollup": "^1.29.0",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.25.3",
+    "ts-jest": "^26.4.4",
     "typescript": "^2.8.3"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["@testing-library/jest-dom"],
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/src/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/src/__mocks__/styleMock.ts"
+    }
   },
   "files": [
     "dist"

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageTooltipsTrigger /> renders correctly 1`] = `
+<div>
+  <div
+    class="hotspot-trigger test-trigger"
+    tabindex="0"
+  >
+    +
+  </div>
+</div>
+`;
