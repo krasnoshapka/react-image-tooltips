@@ -4,14 +4,20 @@
   "private": true,
   "homepage": "https://krasnoshapka.github.io/react-image-tooltips",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-image-tooltips": "^1.1.1",
-    "react-scripts": "3.4.3",
-    "react-spring": "^8.0.27"
+    "react-scripts": "4.0.1",
+    "react-spring": "^8.0.27",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,7 +28,10 @@
     "deploy": "gh-pages -d ./build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [

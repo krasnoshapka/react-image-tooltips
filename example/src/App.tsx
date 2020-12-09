@@ -14,12 +14,12 @@ function App() {
 
       <ImageTooltips src="example.jpg" width={816} height={544} className="my-image">
         <ImageTooltipsItem top={226} left={301} trigger={MyTrigger} className="my-item">
-            <p>Here's some content that lies inside an tooltip.</p>
-            <p>This content can only be viewed, once the tooltip is toggled.</p>
+          <p>Here's some content that lies inside an tooltip.</p>
+          <p>This content can only be viewed, once the tooltip is toggled.</p>
         </ImageTooltipsItem>
         <ImageTooltipsItem top={300} left={504} trigger={MyTrigger} className="my-item">
-            <p>Here's some content that lies inside an tooltip.</p>
-            <p>This content can only be viewed, once the tooltip is toggled.</p>
+          <p>Here's some content that lies inside an tooltip.</p>
+          <p>This content can only be viewed, once the tooltip is toggled.</p>
         </ImageTooltipsItem>
       </ImageTooltips>
 
