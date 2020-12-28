@@ -4,17 +4,24 @@ import {ImageTooltipsTrigger} from './ImageTooltipsTrigger';
 import {imageSizeObject} from './ImageTooltips';
 
 export interface ImageTooltipsItemProps extends React.ComponentPropsWithoutRef<"div"> {
-  dataId: number;
   top: number;
   left: number;
+  trigger?: ReturnType<typeof ImageTooltipsTrigger>
+}
+
+export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = () => {
+  return <div></div>;
+};
+
+export interface _ImageTooltipsItemProps extends ImageTooltipsItemProps {
+  dataId: number;
   imageSize: imageSizeObject;
   toggle: boolean;
-  trigger?: ReturnType<typeof ImageTooltipsTrigger>
   children?: React.ReactNode;
   parentHandleClick: (id: number, toggle: boolean) => void
 }
 
-export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = ({
+export const _ImageTooltipsItem: React.FC<_ImageTooltipsItemProps> = ({
   children,
   dataId,
   top,
@@ -24,7 +31,7 @@ export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = ({
   trigger,
   parentHandleClick,
   ...props
-}: ImageTooltipsItemProps) => {
+}: _ImageTooltipsItemProps) => {
   const [toggled, setToggled] = React.useState(toggle);
   if (toggled !== toggle) {
     setToggled(toggle);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ImageTooltipsItem} from './ImageTooltipsItem';
+import {_ImageTooltipsItem, ImageTooltipsItem} from './ImageTooltipsItem';
 
 export interface ImageTooltipsProps extends React.ComponentPropsWithoutRef<"img"> {
   width: number;
@@ -51,6 +51,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // TODO: use useCallback hook here
   const parentHandleClick = (key: number, toggle: boolean): void => {
     setToggled(toggle ? key : null);
   };
@@ -70,9 +71,9 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
         curH: imageEl.current!.offsetHeight
       })} />
 
-      {imageSize && children && React.Children.toArray(children).map((child: React.ReactElement, index) => {
-        return (
-          <ImageTooltipsItem
+      {imageSize && children && React.Children.map(children, (child: ReturnType<typeof ImageTooltipsItem>, index) => {
+        return child && (
+          <_ImageTooltipsItem
             key={index}
             dataId={index}
             toggle={index === toggled}
@@ -81,7 +82,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
             {...child.props}
           >
             {child.props.children}
-          </ImageTooltipsItem>
+          </_ImageTooltipsItem>
         );
       })}
     </div>
