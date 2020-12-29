@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageTooltips /> component with image renders 1`] = `
+<div>
+  <span />
+</div>
+`;
+
+exports[`<ImageTooltips /> renders correctly 1`] = `
+<div>
+  <div
+    class="hotspot-container"
+    style="max-width: 816px;"
+  >
+    <img
+      src="example.jpg"
+    />
+  </div>
+</div>
+`;

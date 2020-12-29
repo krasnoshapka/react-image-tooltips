@@ -33,7 +33,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
       if (timerId) {
         return;
       }
-      timerId = setTimeout(() => {
+      timerId = global.setTimeout(() => {
         setImageSize({
           initW: imageSizeRef.current!.initW,
           initH: imageSizeRef.current!.initH,
