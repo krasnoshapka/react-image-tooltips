@@ -42,7 +42,7 @@ export const _ImageTooltipsItem: React.FC<_ImageTooltipsItemProps> = ({
     parentHandleClick(dataId, !toggled);
   }
 
-  let cssClass = ['hotspot'];
+  const cssClass = ['hotspot'];
   if (toggled) {
     cssClass.push('toggled');
   }
