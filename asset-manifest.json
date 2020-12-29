@@ -1,25 +1,23 @@
 {
   "files": {
-    "main.css": "/react-image-tooltips/static/css/main.9bc0f1a4.chunk.css",
-    "main.js": "/react-image-tooltips/static/js/main.f69d9841.chunk.js",
-    "main.js.map": "/react-image-tooltips/static/js/main.f69d9841.chunk.js.map",
-    "runtime-main.js": "/react-image-tooltips/static/js/runtime-main.f9b4fc16.js",
-    "runtime-main.js.map": "/react-image-tooltips/static/js/runtime-main.f9b4fc16.js.map",
-    "static/css/2.52b8f87d.chunk.css": "/react-image-tooltips/static/css/2.52b8f87d.chunk.css",
-    "static/js/2.39848343.chunk.js": "/react-image-tooltips/static/js/2.39848343.chunk.js",
-    "static/js/2.39848343.chunk.js.map": "/react-image-tooltips/static/js/2.39848343.chunk.js.map",
+    "main.css": "/react-image-tooltips/static/css/main.0e849ec9.chunk.css",
+    "main.js": "/react-image-tooltips/static/js/main.b4002130.chunk.js",
+    "main.js.map": "/react-image-tooltips/static/js/main.b4002130.chunk.js.map",
+    "runtime-main.js": "/react-image-tooltips/static/js/runtime-main.23c6ae3e.js",
+    "runtime-main.js.map": "/react-image-tooltips/static/js/runtime-main.23c6ae3e.js.map",
+    "static/css/2.db4fded8.chunk.css": "/react-image-tooltips/static/css/2.db4fded8.chunk.css",
+    "static/js/2.52cf8b42.chunk.js": "/react-image-tooltips/static/js/2.52cf8b42.chunk.js",
+    "static/js/2.52cf8b42.chunk.js.map": "/react-image-tooltips/static/js/2.52cf8b42.chunk.js.map",
     "index.html": "/react-image-tooltips/index.html",
-    "precache-manifest.09061ffc7af5e3282c9f322bc2f4f71d.js": "/react-image-tooltips/precache-manifest.09061ffc7af5e3282c9f322bc2f4f71d.js",
-    "service-worker.js": "/react-image-tooltips/service-worker.js",
-    "static/css/2.52b8f87d.chunk.css.map": "/react-image-tooltips/static/css/2.52b8f87d.chunk.css.map",
-    "static/css/main.9bc0f1a4.chunk.css.map": "/react-image-tooltips/static/css/main.9bc0f1a4.chunk.css.map",
-    "static/js/2.39848343.chunk.js.LICENSE.txt": "/react-image-tooltips/static/js/2.39848343.chunk.js.LICENSE.txt"
+    "static/css/2.db4fded8.chunk.css.map": "/react-image-tooltips/static/css/2.db4fded8.chunk.css.map",
+    "static/css/main.0e849ec9.chunk.css.map": "/react-image-tooltips/static/css/main.0e849ec9.chunk.css.map",
+    "static/js/2.52cf8b42.chunk.js.LICENSE.txt": "/react-image-tooltips/static/js/2.52cf8b42.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f9b4fc16.js",
-    "static/css/2.52b8f87d.chunk.css",
-    "static/js/2.39848343.chunk.js",
-    "static/css/main.9bc0f1a4.chunk.css",
-    "static/js/main.f69d9841.chunk.js"
+    "static/js/runtime-main.23c6ae3e.js",
+    "static/css/2.db4fded8.chunk.css",
+    "static/js/2.52cf8b42.chunk.js",
+    "static/css/main.0e849ec9.chunk.css",
+    "static/js/main.b4002130.chunk.js"
   ]
 }
