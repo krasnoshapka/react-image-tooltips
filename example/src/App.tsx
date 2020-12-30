@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <h2>React Image Tooltips Demo</h2>
 
-      <ImageTooltips src="example.jpg" width={816} height={544} className="my-image">
+      <ImageTooltips src="example.jpg" width={816} height={544} className="my-image" triggerEvent="click">
         <ImageTooltipsItem top={226} left={301} trigger={MyTrigger} className="my-item">
           <p>Here's some content that lies inside an tooltip.</p>
           <p>This content can only be viewed, once the tooltip is toggled.</p>

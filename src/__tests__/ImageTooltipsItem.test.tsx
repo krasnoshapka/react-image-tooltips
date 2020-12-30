@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {_ImageTooltipsItem, _ImageTooltipsItemProps} from '../ImageTooltipsItem';
-import {fireEvent, render} from "@testing-library/react";
+import {render} from "@testing-library/react";
 
 describe('<_ImageTooltipsItem />', () => {
   const defaultProps:_ImageTooltipsItemProps = {
@@ -13,8 +13,7 @@ describe('<_ImageTooltipsItem />', () => {
       curW: 816,
       curH: 544
     },
-    toggle: false,
-    parentHandleClick: jest.fn()
+    toggled: false,
   }
   const defaultChild = (
     <p>Here's some content that lies inside an tooltip.</p>
@@ -37,20 +36,6 @@ describe('<_ImageTooltipsItem />', () => {
     );
 
     expect(container.firstChild!.lastChild).toHaveClass('test-trigger');
-  });
-
-  it('calls parentHandleClick', () => {
-    const {container} = render(
-      <_ImageTooltipsItem {...defaultProps}>
-        {defaultChild}
-      </_ImageTooltipsItem>
-    );
-
-    expect(defaultProps.parentHandleClick).not.toBeCalled();
-
-    fireEvent.click(container.firstChild!.firstChild!);
-
-    expect(defaultProps.parentHandleClick).toBeCalled();
   });
 
   it('validates too big coordinates', () => {

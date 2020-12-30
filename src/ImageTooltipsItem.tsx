@@ -16,9 +16,8 @@ export const ImageTooltipsItem: React.FC<ImageTooltipsItemProps> = () => {
 export interface _ImageTooltipsItemProps extends ImageTooltipsItemProps {
   dataId: number;
   imageSize: imageSizeObject;
-  toggle: boolean;
+  toggled: boolean;
   children?: React.ReactNode;
-  parentHandleClick: (id: number, toggle: boolean) => void
 }
 
 export const _ImageTooltipsItem: React.FC<_ImageTooltipsItemProps> = ({
@@ -27,21 +26,10 @@ export const _ImageTooltipsItem: React.FC<_ImageTooltipsItemProps> = ({
   top,
   left,
   imageSize,
-  toggle,
+  toggled,
   trigger,
-  parentHandleClick,
   ...props
 }: _ImageTooltipsItemProps) => {
-  const [toggled, setToggled] = React.useState(toggle);
-  if (toggled !== toggle) {
-    setToggled(toggle);
-  }
-
-  const handleClick = () => {
-    setToggled(!toggled);
-    parentHandleClick(dataId, !toggled);
-  }
-
   const cssClass = ['hotspot'];
   if (toggled) {
     cssClass.push('toggled');
@@ -70,9 +58,9 @@ export const _ImageTooltipsItem: React.FC<_ImageTooltipsItemProps> = ({
 
   return (
     <div className={cssClass.join(' ')} style={style} data-id={dataId}>
-      {trigger ? (<ImageTooltipsTrigger {...trigger.props} handleClick={handleClick}>
+      {trigger ? (<ImageTooltipsTrigger {...trigger.props}>
         {trigger.props.children}
-      </ImageTooltipsTrigger>) : (<ImageTooltipsTrigger handleClick={handleClick}>
+      </ImageTooltipsTrigger>) : (<ImageTooltipsTrigger>
         +
       </ImageTooltipsTrigger>
       )}

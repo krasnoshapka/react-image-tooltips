@@ -1,9 +1,12 @@
 import * as React from 'react';
 import {_ImageTooltipsItem, ImageTooltipsItem} from './ImageTooltipsItem';
 
+export type ImageTooltipsTriggerEvent = ('click' | 'mouseover');
+
 export interface ImageTooltipsProps extends React.ComponentPropsWithoutRef<"img"> {
   width: number;
   height: number;
+  triggerEvent?: ImageTooltipsTriggerEvent;
   children: React.ReactNode
 }
 
@@ -14,16 +17,31 @@ export interface imageSizeObject {
   curH: number
 }
 
-export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, height, ...props}: ImageTooltipsProps) => {
-  const [imageSize, _setImageSize] = React.useState<imageSizeObject | null>(null);
-  const imageSizeRef = React.useRef(imageSize);
-  const [toggled, setToggled] = React.useState<number | null>(null);
-  const imageEl = React.useRef<HTMLImageElement | null>(null);
+type State = {
+  imageSize: (imageSizeObject | null),
+  toggled: (number | null)
+};
 
-  // Need to use Ref because state is unavailable in handleResize EventListener
-  const setImageSize = (imageData: imageSizeObject) => {
-    imageSizeRef.current = imageData;
-    _setImageSize(imageData);
+export const ImageTooltips: React.FC<ImageTooltipsProps> = ({
+  children,
+  width,
+  height,
+  triggerEvent = 'click',
+  ...props
+}: ImageTooltipsProps) => {
+  const [state, _setState] = React.useState<State>({imageSize: null, toggled: null});
+  const stateRef = React.useRef<State>(state);
+  const imageEl = React.useRef<HTMLImageElement | null>(null);
+  const divEl = React.useRef<HTMLDivElement | null>(null);
+
+  // Need to use Ref because state is unavailable in event listeners
+  const setImageSize = (imageSize: imageSizeObject) => {
+    stateRef.current.imageSize = imageSize;
+    _setState({...state, imageSize: imageSize});
+  };
+  const setToggled = (toggled: (number | null)) => {
+    stateRef.current.toggled = toggled;
+    _setState({...state, toggled: toggled});
   };
 
   let timerId: NodeJS.Timeout | undefined;
@@ -35,8 +53,8 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
       }
       timerId = global.setTimeout(() => {
         setImageSize({
-          initW: imageSizeRef.current!.initW,
-          initH: imageSizeRef.current!.initH,
+          initW: stateRef.current.imageSize!.initW,
+          initH: stateRef.current.imageSize!.initH,
           curW: imageEl.current!.offsetWidth,
           curH: imageEl.current!.offsetHeight
         });
@@ -44,17 +62,42 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
       }, 200);
     };
 
-    // Add event listener
     window.addEventListener('resize', handleResize);
 
-    // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // TODO: use useCallback hook here
-  const parentHandleClick = (key: number, toggle: boolean): void => {
-    setToggled(toggle ? key : null);
-  };
+  // Add event handler for all tooltip items
+  React.useEffect(() => {
+    const startHandler = (event: MouseEvent) => {
+      const clicked = event.target as HTMLElement;
+      if (clicked.classList.contains('hotspot-trigger')) {
+        const dataIdStr = clicked.parentElement!.getAttribute('data-id');
+        if (dataIdStr) {
+          const dataId = parseInt(dataIdStr);
+          setToggled(stateRef.current.toggled != dataId ? dataId : null);
+        } else {
+          setToggled(null);
+        }
+      }
+    };
+
+    const endHandler = () => {
+      setToggled(null);
+    }
+
+    divEl.current!.addEventListener(triggerEvent, startHandler);
+    if (triggerEvent == 'mouseover') {
+      divEl.current!.addEventListener('mouseout', endHandler);
+    }
+
+    return () => {
+      divEl.current!.removeEventListener(triggerEvent, startHandler);
+      if (triggerEvent == 'mouseover') {
+        divEl.current!.removeEventListener('mouseout', endHandler);
+      }
+    }
+  }, []);
 
   // Making image responsive
   const style = {
@@ -62,7 +105,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
   };
 
   return (
-    <div className="hotspot-container" style={style}>
+    <div ref={divEl} className="hotspot-container" style={style}>
       <img ref={imageEl} {...props} onLoad={() => setImageSize({
         // Set initial image dimensions in state
         initW: width,
@@ -71,14 +114,13 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({children, width, he
         curH: imageEl.current!.offsetHeight
       })} />
 
-      {imageSize && children && React.Children.map(children, (child: ReturnType<typeof ImageTooltipsItem>, index) => {
+      {state.imageSize && children && React.Children.map(children, (child: ReturnType<typeof ImageTooltipsItem>, index) => {
         return child && (
           <_ImageTooltipsItem
             key={index}
             dataId={index}
-            toggle={index === toggled}
-            imageSize={imageSize}
-            parentHandleClick={parentHandleClick}
+            toggled={index === state.toggled}
+            imageSize={state.imageSize}
             {...child.props}
           >
             {child.props.children}
