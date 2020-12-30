@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {_ImageTooltipsItem, ImageTooltipsItem} from './ImageTooltipsItem';
+import {_ImageTooltipsItem, ImageTooltipsItemProps} from './ImageTooltipsItem';
 
 export type ImageTooltipsTriggerEvent = ('click' | 'mouseover');
 
@@ -114,16 +114,21 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({
         curH: imageEl.current!.offsetHeight
       })} />
 
-      {state.imageSize && children && React.Children.map(children, (child: ReturnType<typeof ImageTooltipsItem>, index) => {
-        return child && (
+      {state.imageSize && children && React.Children.map(children, (child, index) => {
+        if (!child || ! React.isValidElement<ImageTooltipsItemProps>(child)) {
+          return child;
+        }
+        const childEl: React.ReactElement<ImageTooltipsItemProps> = child;
+
+        return (
           <_ImageTooltipsItem
             key={index}
             dataId={index}
             toggled={index === state.toggled}
-            imageSize={state.imageSize}
-            {...child.props}
+            imageSize={state.imageSize!}
+            {...childEl.props}
           >
-            {child.props.children}
+            {childEl.props.children}
           </_ImageTooltipsItem>
         );
       })}
