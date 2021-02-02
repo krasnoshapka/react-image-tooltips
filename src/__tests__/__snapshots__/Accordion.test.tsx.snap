@@ -3,7 +3,7 @@
 exports[`<Accordion /> renders correctly when closed 1`] = `
 <div>
   <div
-    class="hotspot-content "
+    class="image-tooltips-item__content "
     style="height: 0px;"
   >
     <span>
@@ -16,7 +16,7 @@ exports[`<Accordion /> renders correctly when closed 1`] = `
 exports[`<Accordion /> renders correctly when open 1`] = `
 <div>
   <div
-    class="hotspot-content "
+    class="image-tooltips-item__content "
     style="height: auto;"
   >
     <span>

@@ -3,7 +3,7 @@
 exports[`<ImageTooltips /> renders correctly 1`] = `
 <div>
   <div
-    class="hotspot-container"
+    class="image-tooltips"
     style="max-width: 816px;"
   >
     <img

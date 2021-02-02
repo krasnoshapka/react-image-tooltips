@@ -6,18 +6,18 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="hotspot"
+        class="image-tooltips-item"
         data-id="1"
         style="left: 301px; top: 226px;"
       >
         <div
-          class="hotspot-trigger "
+          class="image-tooltips-item__trigger "
           tabindex="0"
         >
           +
         </div>
         <div
-          class="hotspot-content "
+          class="image-tooltips-item__content "
           style="height: 0px;"
         >
           <p>
@@ -29,18 +29,18 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="hotspot"
+      class="image-tooltips-item"
       data-id="1"
       style="left: 301px; top: 226px;"
     >
       <div
-        class="hotspot-trigger "
+        class="image-tooltips-item__trigger "
         tabindex="0"
       >
         +
       </div>
       <div
-        class="hotspot-content "
+        class="image-tooltips-item__content "
         style="height: 0px;"
       >
         <p>

@@ -3,7 +3,7 @@
 exports[`<ImageTooltipsTrigger /> renders correctly 1`] = `
 <div>
   <div
-    class="hotspot-trigger test-trigger"
+    class="image-tooltips-item__trigger test-trigger"
     tabindex="0"
   >
     +

@@ -71,7 +71,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({
   React.useEffect(() => {
     const startHandler = (event: MouseEvent) => {
       const clicked = event.target as HTMLElement;
-      if (clicked.classList.contains('hotspot-trigger')) {
+      if (clicked.classList.contains('image-tooltips-item__trigger')) {
         const dataIdStr = clicked.parentElement!.getAttribute('data-id');
         if (dataIdStr) {
           const dataId = parseInt(dataIdStr);
@@ -105,7 +105,7 @@ export const ImageTooltips: React.FC<ImageTooltipsProps> = ({
   };
 
   return (
-    <div ref={divEl} className="hotspot-container" style={style}>
+    <div ref={divEl} className="image-tooltips" style={style}>
       <img ref={imageEl} {...props} onLoad={() => setImageSize({
         // Set initial image dimensions in state
         initW: width,

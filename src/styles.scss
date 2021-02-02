@@ -1,22 +1,22 @@
-.hotspot {
-  position: absolute;
-}
-
-.hotspot-container {
+.image-tooltips {
   position: relative;
 
   img {
     width: 100%;
     height: auto;
   }
-}
 
-.hotspot-content {
-  overflow: hidden;
-  position: absolute;
-  left: 50%;
-}
+  &-item {
+    position: absolute;
 
-.hotspot-trigger {
-  position: relative;
+    &__trigger {
+      position: relative;
+    }
+
+    &__content {
+      overflow: hidden;
+      position: absolute;
+      left: 50%;
+    }
+  }
 }

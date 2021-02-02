@@ -25,7 +25,7 @@ export const Accordion: React.FC<AccordionProps> =({
     else if (!toggled && onFullyHidden) onFullyHidden();
   }, [toggled, onFullyShown, onFullyHidden]);
 
-  const cssClass = ["hotspot-content", className];
+  const cssClass = ["image-tooltips-item__content", className];
 
   return (
     <Spring

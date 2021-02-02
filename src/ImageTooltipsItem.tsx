@@ -30,12 +30,12 @@ export const _ImageTooltipsItem: React.FC<_ImageTooltipsItemProps> = ({
   trigger,
   ...props
 }: _ImageTooltipsItemProps) => {
-  const cssClass = ['hotspot'];
+  const cssClass = ['image-tooltips-item'];
   if (toggled) {
     cssClass.push('toggled');
   }
 
-  // Validation of hotspot coordinates
+  // Validation of tooltip coordinates
   const validateCoord = (c: number, max: number) => {
     if (c <= 0) {
       console.log(`Tooltip with id ${dataId} has coordinate outside of image.`);
