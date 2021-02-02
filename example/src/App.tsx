@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>React Image Tooltips Demo</h2>
+      <h1>React Image Tooltips Demo</h1>
 
       <ImageTooltips src="example.jpg" width={816} height={544} className="my-image" triggerEvent="click">
         <ImageTooltipsItem top={226} left={301} trigger={MyTrigger} className="my-item">

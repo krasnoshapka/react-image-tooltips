@@ -1,20 +1,46 @@
-$basesize: 1rem * .625 !default; // 10px
-$primary: #007bff !default;
+// VARIABLES
+$font-base: 1rem;
+$color-primary: #007bff;
 
+// BASIC
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 400;
+  padding: 2rem 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  padding-bottom: 2rem;
+}
+
+// EXAMPLE STYLES
 .my-image {
-
+  border: $color-primary 1px solid;
 }
 
 .my-trigger {
   text-align: center;
-  width: ($basesize * 3.4);
-  height: ($basesize * 3.4);
-  margin-bottom: $basesize;
+  width: ($font-base * 3.4);
+  height: ($font-base * 3.4);
+  margin-bottom: $font-base;
   border-radius: 100%;
-  line-height: ($basesize * 3.3);
-  background: $primary;
+  background: $color-primary;
   color: #fff;
-  font-size: ($basesize * 3);
+  font-size: ($font-base * 3);
   font-weight: 400;
   z-index: 10;
   cursor: pointer;
@@ -32,12 +58,12 @@ $primary: #007bff !default;
   &:before {
     content: '';
     position: absolute;
-    top: -($basesize * .5);
-    left: -($basesize * .5);
+    top: -($font-base * .5);
+    left: -($font-base * .5);
     z-index: -1;
-    width: ($basesize * 3.8);
-    height: ($basesize * 3.8);
-    border: ($basesize * .3) solid $primary;
+    width: ($font-base * 3.8);
+    height: ($font-base * 3.8);
+    border: ($font-base * .3) solid $color-primary;
     border-radius: 50%;
     animation: pulsate 1.5s infinite;
   }
@@ -56,13 +82,17 @@ $primary: #007bff !default;
 }
 
 .my-item {
-  top: ($basesize * 4.4);
-  min-width: ($basesize * 25);
+  top: ($font-base * 4.4);
+  min-width: ($font-base * 25);
   transform: translateX(-50%);
-  background-color: $primary;
+  background-color: $color-primary;
   opacity: 0.9;
   color: #fff;
   border-radius: 2%;
-  padding: 0 $basesize;
+
+  p {
+    margin: ($font-base * 1.6);
+    font-size: ($font-base * 1.3);
+  }
 }
 
