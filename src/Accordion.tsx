@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Spring } from 'react-spring/renderprops.cjs';
+import { Spring, animated } from 'react-spring';
 import useFirstMount from './hooks/firstmount';
 
 export interface AccordionProps extends React.ComponentPropsWithoutRef<"div"> {
@@ -39,10 +39,10 @@ export const Accordion: React.FC<AccordionProps> =({
       immediate={isFirstMount}
       onRest={handleAnimationRest}
     >
-      {styleProps => (
-        <div className={cssClass.join(' ')} style={styleProps} {...props}>
+      {(styleProps: any) => (
+        <animated.div className={cssClass.join(' ')} style={styleProps} {...props}>
           {children}
-        </div>
+        </animated.div>
       )}
     </Spring>
   );

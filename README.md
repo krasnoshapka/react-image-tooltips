@@ -18,7 +18,7 @@ npm install --save react-spring react-image-tooltips
 ## Usage
 
 ```jsx
-import {ImageTooltips, ImageTooltipsItem} from "react-image-tooltips";
+import {ImageTooltips, ImageTooltipsItem, ImageTooltipsTrigger} from "react-image-tooltips";
 import "react-image-tooltips/dist/index.css";
 
 // ...
