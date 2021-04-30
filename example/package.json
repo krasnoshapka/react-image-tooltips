@@ -13,9 +13,9 @@
     "@types/react-dom": "^16.9.8",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-image-tooltips": "^1.2.1",
+    "react-image-tooltips": "^1.3.0",
     "react-scripts": "4.0.1",
-    "react-spring": "^8.0.27",
+    "react-spring": "^9.1.2",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
